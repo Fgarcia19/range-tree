@@ -28,10 +28,6 @@ bool comprobar(vector<pair<int,int>>v1,vector<pair<int,int>>v2)
         if(m[l]==0) return false;
     }
     return true;
-
-    
-
-
 }
 
 vector<std::pair<int,int>> find(vector<std::pair<int,int>>v, int x_from, int x_to, int y_from, int y_to)
