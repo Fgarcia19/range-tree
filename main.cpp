@@ -19,7 +19,7 @@ int main()
 {
     time(NULL);
     vector<pair<int,int>> v;
-    vector<std::pair<int,int>> a;
+    vector<pair<int,int>> a;
 
     vector<int> v1;
     vector<int> v2;
@@ -46,7 +46,9 @@ int main()
       // vy[i]=v2[i]; 
       // cout<<vx[i]<<" "<<vy[i]<<endl;
     }
-
+    for (int i = 0; i < N; i++) {
+      cout << "y: " << vy[i] << " x: " << vx[i] << endl;
+    }
     range_tree rg(vy,vx,false);
     Node * root = rg.create_range_tree(vx,0,N-1,0);
     rg.root=root;
@@ -58,7 +60,7 @@ int main()
     // rg.find1(fx, tx,fy,ty);
 
     t0=clock();
-    auto r1=rg.find(30000, 850000,5000,90000);
+    auto r1=rg.find(151792716, 889831815,900558361,996327726);
     t1=clock();
     cout<<t0<<endl;
     cout<<t1<<endl;
@@ -66,7 +68,7 @@ int main()
     double t_arbol=(double(t1-t0)/CLOCKS_PER_SEC);
     cout<<"Fuerza bruta"<<endl;
     double t2=clock();
-    auto b=find(a,30000, 850000,5000,90000);
+    auto b=find(a,151792716, 889831815,900558361,996327726);
 
     // for(auto i:b)
     // {
@@ -82,8 +84,8 @@ int main()
     cout<<r1.size()<<" "<<b.size()<<endl;
     cout<<comprobar(r1,b)<<endl;
 
-    cout<<"ARBOL: "<<t_arbol<<endl;
-    cout<<"BRUTA: "<<t_fuerza<<endl;
+    cout<<"ARBOL: "<<t_arbol * 1000 <<endl;
+    cout<<"BRUTA: "<<t_fuerza * 1000 <<endl;
 
 
   
