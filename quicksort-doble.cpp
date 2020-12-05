@@ -1,4 +1,3 @@
-// #include "quicksort.cpp"
 void swap(int* a, int* b) 
 { 
 	int t = *a; 
