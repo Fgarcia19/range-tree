@@ -20,7 +20,8 @@ int main()
     vector<int> v2;
 
     srand(time(NULL));
-
+    //N es cantidad de elemento a insertar
+    //N_CONS cantidad de consultas a realizar para la parte de experimentacion y calcular los tiempos
     for (int i=0;i<N;i++)
     {
       v.push_back({rand()%1000000000,rand()%1000000000});
@@ -39,6 +40,7 @@ int main()
     Node * root = rg.create_range_tree(vx,0,N-1,0);
     rg.root=root;
     int fx,tx,fy,ty;
+    //Valores from,to de x,y respectivamente para buscar
     fx = 151792716;
     tx = 889831815;
     fy = 900558361;
@@ -49,6 +51,7 @@ int main()
     vector<pair<int, int>> r1, b;
     for (int i = 0; i < N_CONS; i++) {
       t0=clock();
+      //Para facilitar la creacion de N_CONS consultas distintas, si se desea hacer una unica puede ponerse a 1
       r1=rg.find(fx + i, tx + i, fy + i, ty + i);
       t1=clock();
       t_arbol += (double(t1-t0)/CLOCKS_PER_SEC);
